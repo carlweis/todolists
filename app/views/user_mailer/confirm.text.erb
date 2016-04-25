@@ -1,0 +1,12 @@
+
+Todolist
+
+Hello <%= @user.username %>,
+
+Please click the link below to confirm your email address.
+
+<%= link_to 'Click to confirm your email address', 
+user_confirm_url(@user.confirmation_token) %>
+
+Thank You,
+Todolist

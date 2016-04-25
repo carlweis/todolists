@@ -1,0 +1,17 @@
+<h1>Todolist</h1>
+
+<p>Hello <strong><%= @user.username %></strong>,</p>
+
+<p>Please click the link below to confirm your email address.</p>
+
+<p>
+<%= link_to 'Click to confirm your email address', 
+  user_confirm_url(@user.confirmation_token) %>
+</p>
+
+<br>
+<p>
+  Thank You,<br>
+  Todolist
+</p>
+
