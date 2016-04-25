@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get "user/:username" => "dashboards#show", as: "dashboard"
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, controller: "sessions", only: [:create]
   
   get "/users/confirm/:token" => "users#confirm", as: "user_confirm"
   resources :users, controller: "users", only: [:create] do

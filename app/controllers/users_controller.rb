@@ -1,7 +1,7 @@
 class UsersController < Clearance::UsersController
   def create
     @user = user_from_params
-    @user.confirmation_token = generate_confirm_token
+    @user.confirmation_token = Clearance::Token.new
     if @user.save
       # send confirmation email
       UserMailer.confirm(@user).deliver_now
@@ -26,9 +26,5 @@ class UsersController < Clearance::UsersController
   private
     def user_params
       params[:user].permit(:email, :password, :username) 
-    end
-
-    def generate_confirm_token
-      Clearance::Token.new
     end
 end
